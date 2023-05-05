@@ -1,0 +1,45 @@
+spring:
+  h2:
+    console.enabled: true
+    console.settings.web-allow-others: true
+  datasource:
+    url: jdbc:h2:file:./data/itsao
+    # url: jdbc:mysql://localhost:3306/user_db
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    # initialization-mode: never
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: never
+      # mode: always 
+      # encoding: UTF-8
+        # dialect: org.hibernate.dialect.MySQL8Dialect
+
+server:
+   port: 8080 # This is the default port anyway, but you can change it here
+
+security:
+  jwt:
+    token:
+      secret-key: secret-key
+      expire-length: 7200000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+
+
+itsao:
+  password:
+    length: 8
+      
