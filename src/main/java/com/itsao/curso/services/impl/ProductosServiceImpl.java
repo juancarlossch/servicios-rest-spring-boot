@@ -29,6 +29,7 @@ public class ProductosServiceImpl implements ProductosService{
 
         try {
             Productos productosGuardar = this.modelMapper.map(productosDto, Productos.class);
+            productosGuardar.setId(0L);
             this.productosRepository.save(productosGuardar);
             return true;
         } catch (Exception e) {
